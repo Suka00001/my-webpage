@@ -1,0 +1,61 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Welcome</title>
+    <style>
+        body {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+            justify-content: center;
+            height: 100vh;
+    
+        }
+        #startPage {
+            text-align: center;
+        }
+    
+    </style>
+</head>
+<body>
+    <h1 id="heading" style="text-align: center;"> Welcome to my World!!</h1>
+    <div id="startPage">
+        <button id="DialogButton" onclick="showDialog()">Click Me</button>
+    </div>
+    
+        <div id="custDialog" style="display: none; border: 2px sandybrown; align-items: center;">
+            <p>hey! you know I am beautiful !!</p>
+            <p>Choose an option:</p>
+            <label><input type="radio" name="option" value="yes"> Yes</label>
+            <label><input type="radio" name="option" value="no"> No</label>
+            <br>
+            <button onclick="handleResp()">Confirm</button>
+        </div>
+
+    <script>
+        let heading = document.getElementById('heading');
+        let dialogButton = document.getElementById('DialogButton');
+        let startPage = document.getElementById('startPage');
+        let customDialog = document.getElementById('custDialog');
+
+        function showDialog() {
+            startPage.style.display = 'none';
+            customDialog.style.display = 'block';
+            heading.style.display='none';
+        }
+
+        function handleResp() {
+            const selectedOption = document.querySelector('input[name="option"]:checked');
+            if (selectedOption) {
+                if (selectedOption.value == "yes") {
+                    alert("By the way, I know!!!");
+                    location.reload();
+                } else if (selectedOption.value == "no") {
+                    alert("no no no select yes");
+                    showDialog();
+                }
+            }
+        }
+    </script>
+</body>
+</html>
